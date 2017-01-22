@@ -1,0 +1,23 @@
+{{ if or (.Paginator.HasPrev) (.Paginator.HasNext) }}
+    <ul class="pagination center-align">
+        {{ if .Paginator.HasPrev }}
+            <li><a rel="prev" href="{{ .Paginator.Prev.URL | relURL }}"><i class="material-icons">chevron_left</i></a></li>
+        {{ else }}
+            <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+        {{ end }}
+
+        {{ range .Paginator.Pagers }}
+            {{ if eq ($.Paginator.PageNumber) (.PageNumber) }}
+                <li class="active"><a href="#!">{{ .PageNumber }}</a></li>
+            {{ else }}
+                <li><a href="{{ .URL | relURL }}">{{ .PageNumber }}</a></li>
+            {{ end }}
+        {{ end }}
+
+        {{ if .Paginator.HasNext }}
+            <li><a rel="next" href="{{ .Paginator.Next.URL | relURL }}"><i class="material-icons">chevron_right</i></a></li>
+        {{ else }}
+            <li><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+        {{ end }}
+    </ul>
+{{ end }}

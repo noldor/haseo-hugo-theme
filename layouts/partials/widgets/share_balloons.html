@@ -1,0 +1,36 @@
+<ul class="share-balloons" aria-hidden="true">
+    <li>
+        <span class="balloon twitter-balloon">
+            <a href="https://twitter.com/search?f=tweets&q={{ .URL | urlize | absURL }}" target="_blank">
+                <span class="counter"><i class="fa fa-comments"></i></span>
+            </a>
+            <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+            <a href="https://twitter.com/intent/tweet?url={{ .URL | urlize | absURL }}&text={{ .Title }}{{ with .Site.Social.twitter }}&related={{ . }}{{ end }}" target="_blank">
+                <span class="button"><i class="fa fa-twitter"></i></span>
+            </a>
+        </span>
+    </li>
+    <li>
+        <span class="balloon facebook-balloon">
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ .URL | urlize | absURL }}" target="_blank">
+                <span class="counter" data-url="{{ .URL | urlize | absURL }}"><i class="fa fa-spinner"></i></span>
+            </a>
+            <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+            <a href="https://www.facebook.com/sharer/sharer.php?u={{ .URL | urlize | absURL }}" target="_blank">
+                <span class="button"><i class="fa fa-facebook"></i></span>
+            </a>
+        </span>
+    </li>
+    <li>
+        <span class="balloon hatebu-balloon">
+            <a href="https://b.hatena.ne.jp/entry/{{ .URL | urlize | absURL }}" target="_blank">
+                <span class="counter" data-url="{{ .URL | urlize | absURL }}"><i class="fa fa-spinner"></i></span>
+            </a>
+            <span class="arrow"><i class="fa fa-chevron-down"></i></span>
+            <a href="https://b.hatena.ne.jp/entry/{{ .URL | urlize | absURL }}" class="hatena-bookmark-button" data-hatena-bookmark-layout="simple" data-hatena-bookmark-lang="ja" title="このエントリーをはてなブックマークに追加" target="_blank">
+                <span class="button">B!</span>
+            </a>
+            <script type="text/javascript" src="https://b.st-hatena.com/js/bookmark_button.js" charset="utf-8" async="async"></script>
+        </span>
+    </li>
+</ul>

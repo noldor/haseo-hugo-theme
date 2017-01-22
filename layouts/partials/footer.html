@@ -1,0 +1,26 @@
+<footer class="page-footer">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 center-align">
+                <div class="profile">
+                    <div><img class="responsive-img circle z-depth-1" src="{{ "/img/avater.jpg" | relURL }}"></div>
+                    <div class="social-links">
+                        {{ with .Site.Social.github }}
+                            <a href="https://github.com/{{.}}" target="_blank" title="GitHub"><i class="fa fa-github"></i></a>
+                        {{ end }}
+                        {{ with .Site.Social.twitter }}
+                            <a href="https://twitter.com/{{.}}" target="_blank" title="Twitter"><i class="fa fa-twitter"></i></a>
+                        {{ end }}
+                        <a href="/index.xml" title="RSS"><i class="fa fa-rss"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright center-align">
+        <div class="container">
+            &copy; {{ .Site.Copyright }}
+        </div>
+    </div>
+</footer>

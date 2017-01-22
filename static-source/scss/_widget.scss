@@ -1,0 +1,68 @@
+// はてなブログカード
+.hatena-blogcard {
+    width: 100%;
+    max-width:600px;
+    border-width: 0px;
+    border-style: none;
+}
+
+// シェアボタン
+.share-balloons {
+    li {
+        display: inline-block;
+    }
+
+    .balloon {
+        display: block;
+        box-sizing: border-box;
+        width: 80px;
+        text-align: center;
+
+        .counter {
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid $monochrome-color-dark;
+            border-radius: 3px;
+            width: 100%;
+            padding: 0.5em 0;
+            color: $monochrome-color-dark;
+        }
+        .counter.counted {
+            color: $off-black;
+        }
+
+        .arrow {
+            display: block;
+            box-sizing: border-box;
+            border-width: 5px 0px;
+            border-style: solid;
+            border-color: white;
+            margin: -11px 35px -8px 35px;
+            padding: 0;
+            z-index: 1;
+            background-color: white;
+            color: $monochrome-color-dark;
+            font-size: 10px;
+        }
+
+        .button {
+            display: block;
+            box-sizing: border-box;
+            border: 1px solid $monochrome-color-dark;
+            border-radius: 3px;
+            width: 100%;
+            padding: 0.2em 0;
+            color: white;
+        }
+    }
+    .twitter-balloon .button {
+        background-color: #1da1f2;
+    }
+    .facebook-balloon .button {
+        background-color: #3b5998;
+    }
+    .hatebu-balloon .button {
+        background-color: #008fde;
+        font-weight: bold;
+    }
+}

@@ -1,0 +1,12 @@
+<article class="post">
+    <h1>{{ .Title }}</h1>
+    {{ partial "post_meta_top" . }}
+
+    <div class="article-body">
+      {{ .Content }}
+    </div>
+
+    {{ partial "widgets/share_balloons" . }}
+    {{ partial "post_meta_bottom" . }}
+    {{ partial "post_prev_next" . }}
+</article>

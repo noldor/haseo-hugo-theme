@@ -1,0 +1,24 @@
+{{ range (.Paginate .Data.Pages).Pages }}
+  <article class="article-list-item">
+    {{ if and (isset .Params "eye_catch") (not (eq .Params.eye_catch "")) }}
+      <a href="{{ .RelPermalink }}"><img class="eye_catch" src="{{ .Params.eye_catch | relURL }}" alt="{{ .Title }}"></a>
+    {{ end }}
+
+    <a class="title" href="{{ .RelPermalink }}">
+      <h2>{{ .Title }}</h2>
+    </a>
+    {{ partial "post_meta_top" . }}
+
+    <div class="article-body">
+      {{ .Summary }}
+    </div>
+
+    {{ if .Truncated }}
+      <a class="btn" href="{{ .RelPermalink }}">
+        {{with .Site.Data.articles.read_more}}{{.}}{{end}}
+      </a>
+    {{ end }}
+  </article>
+{{ end }}
+
+{{ partial "pagination" . }}

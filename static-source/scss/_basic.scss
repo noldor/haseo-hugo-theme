@@ -1,0 +1,54 @@
+// 文字サイズ設定
+html{
+    font-size: 14px;
+
+    @media #{$medium-and-up} {
+        font-size: 14.5px;
+    }
+
+    @media #{$large-and-up} {
+        font-size: 17px;
+    }
+}
+
+// ナビバー周辺
+main {
+    margin-top: 1em;
+}
+
+// DISQUS
+#disqus_thread {
+    margin-top: 1em;
+}
+
+// サイドバー
+#sidebar {
+    @media #{$large-and-up} {
+        padding-left: 5px;
+    }
+
+    ul {
+        padding-left: 1em;
+        &.article-list {
+            padding-left: 0;
+        }
+    }
+}
+
+// フッタ
+footer.page-footer {
+    a {
+        color: white;
+    }
+
+    .profile {
+        display: inline-block;
+        max-width: 150px;
+
+        .social-links {
+            font-size: 40px;
+            text-align: justify;
+            text-align-last: justify;
+        }
+    }
+}

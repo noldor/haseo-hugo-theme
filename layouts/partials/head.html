@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="{{ with .Site.LanguageCode }}{{ . }}{{ else }}ja{{ end }}">
+<head>
+<meta charset="utf-8">
+<title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+
+{{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ .Site.Params.site_description }}{{ end }}">
+
+<link href="{{ .Site.RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Site.Title }}" />
+{{ if not .IsHome }}
+    <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ .Title }} | {{ .Site.Title }}" />
+{{ end }}
+
+{{ if ne .Kind "404" }}
+    <link rel="canonical" href="{{ .Permalink }}"/>
+{{ end }}
+<!-- @todo どうしよう
+<link rel="icon" href="{{ "favicon.ico" | relURL }}">
+<link rel="apple-touch-icon" href="{{ "apple-touch-icon.png" | relURL }}"/>
+-->
+
+<!-- materialize -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+<!-- font-awasome -->
+<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "themes/haseo/static" "path" "font-awesome/css/font-awesome.min.css") | relURL }}">
+
+<!-- custom css -->
+<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "static" "path" "css/style.css") | relURL }}">
+
+<!-- @todo どうしよう
+{ template "_internal/opengraph.html" . }}
+{ template "_internal/google_news.html" . }}
+{ template "_internal/schema.html" . }}
+{ template "_internal/twitter_cards.html" . }}
+-->
+
+{{ partial "custom_head" . }}
+</head>
+<body>
+
+<script>
+$ = function(eventHandler) {
+    if (document.readyState !== 'loading') {
+        eventHandler();
+    } else {
+        document.addEventListener('DOMContentLoaded', eventHandler);
+    }
+};
+</script>

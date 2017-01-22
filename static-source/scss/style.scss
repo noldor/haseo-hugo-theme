@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+$h1-fontsize: 2.28rem !default;
+$h2-fontsize: 1.54rem !default;
+$h3-fontsize: 1.35rem !default;
+$h4-fontsize: 1.20rem !default;
+$h5-fontsize: 1.20rem !default;
+$h6-fontsize: 1rem !default;
+
+$roboto-font-path: "/materialize-src/fonts/roboto/" !default;
+
+@import "../../static/materialize-src/sass/materialize";
+
+// 独自基調色設定
+$monochrome-color: #eeeeee !default;
+$monochrome-color-light: lighten($monochrome-color, 15%) !default;
+$monochrome-color-dark: darken($monochrome-color, 15%) !default;
+
+@import "basic";
+@import "list";
+@import "article";
+@import "widget";

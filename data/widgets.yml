@@ -1,0 +1,12 @@
+recent_articles:
+  title: 新着記事
+  number: 5
+
+categories:
+  title: カテゴリ
+
+archives:
+  title: アーカイブ
+
+search_box:
+  title: サイト内検索

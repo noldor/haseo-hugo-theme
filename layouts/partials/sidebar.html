@@ -1,0 +1,8 @@
+<aside id="sidebar" class="row">
+    {{ partial "widgets/recent_articles" . }}
+    {{ if .Site.Params.GoogleCustomeSearchEngine }}
+        {{ partial "widgets/search_box" . }}
+    {{ end }}
+    {{ partial "widgets/categories" . }}
+    {{ partial "widgets/archives" . }}
+</aside>

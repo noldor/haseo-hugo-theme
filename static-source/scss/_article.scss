@@ -1,0 +1,83 @@
+// 記事内設定
+article {
+    word-wrap: break-word;
+
+    // 日付など記事メタ情報
+    .post-meta {
+        background-color: $monochrome-color;
+        a {
+            color: $off-black;
+            transition: color 0.5s ease 0s, text-decoration 0.5s ease 0s;
+            &:hover {
+                color: $link-color;
+                text-decoration: underline;
+            }
+        }
+    }
+
+    // 記事本文
+    .article-body {
+        margin-top: 1em;
+
+        p,
+        blockquote {
+            text-align: justify;
+        }
+
+        h2 {
+            padding: 0.8em 0.5em;
+            border-left: 5px solid $monochrome-color-dark;
+        }
+
+        h3 {
+            margin-top: 1em;
+            border-bottom: 5px solid $monochrome-color-dark;
+        }
+
+        pre {
+            background: $monochrome-color;
+            border: 1px solid $monochrome-color-dark;
+            padding: 0.5em;
+        }
+        .highlight pre {
+            background: inherit;
+        }
+
+        ul li {
+            list-style-type: square;
+            margin-left: 1.5em;
+        }
+
+        strong {
+            font-weight: bold;  // materialize標準設定ではstrongの日本語フォントがほとんど変化しないため
+        }
+
+        // カードサイズ
+        .card.asis {
+            display: inline-block;
+            img {
+                width: auto;
+                max-width: 100%;
+            }
+        }
+    }
+
+    // 記事下ページャ
+    .post-nav {
+        margin-top: 1em;
+        border-width: 1px 0 0 0;
+        border-style: solid;
+        border-color: $monochrome-color-dark;
+
+        & > a > div {
+            border-bottom: 1px solid $monochrome-color-dark;
+            padding: 1em 0;
+            color: $off-black;
+            transition: color 0.5s ease 0s, text-decoration 0.5s ease 0s;
+            &:hover {
+                color: $link-color;
+                text-decoration: underline;
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{{ if not (eq (len .Site.Taxonomies.categories) 0) }}
+    <section class="widget col s6 m6 l12">
+        <h4 class="widget-title">{{with .Site.Data.widgets.categories.title}}{{.}}{{end}}</h4>
+        <ul class="category-list">
+        {{ range $name, $items := .Site.Taxonomies.categories }}
+            <li class="item">
+                {{ $url := printf "%s/%s" "categories" ($name | urlize | lower)}}
+                <a class="item-link" href="{{ $url | relURL }}">{{ $name }}</a>
+                <span class="item-count">({{ len $items }})</span>
+            </li>
+        {{ end }}
+        </ul>
+    </section>
+{{ end }}

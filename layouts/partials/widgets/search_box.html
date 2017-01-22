@@ -1,0 +1,12 @@
+<section class="widget col s12 m12 l12">
+    <h4 class="widget-title">{{with .Site.Data.widgets.search_box.title}}{{.}}{{end}}</h4>
+    <form action="//www.google.com/cse" id="cse-search-box">
+        <div class="input-field">
+            <input type="hidden" name="cx" value="{{ .Site.Params.GoogleCustomeSearchEngine }}">
+            <input type="hidden" name="ie" value="UTF-8">
+            <input type="text" name="q">
+            <input type="hidden" name="sa" value="検索">
+        </div>
+    </form>
+    <script type="text/javascript" src="//www.google.com/cse/brand?form=cse-search-box&lang=ja"></script>
+</section>
