@@ -8,7 +8,11 @@
 
 <div class="card {{ $class }}">
     <div class="card-image">
-        <a href="{{ partial "fragments/attach_dir" . }}{{ .Get "src" }}.{{ $maxsize }}.{{ substr (.Get "src") -1 3 }}?{{ partial "fragments/hash_content" (delimit (slice (partial "fragments/attach_dir" .) (.Get "src")) "") }}" data-lightbox="card-image"{{ with .Inner }} data-title="{{ . }}"{{ end }}>
+        {{ if .Get "href" }}
+            <a href="{{ .Get "href" }}">
+        {{ else }}
+            <a href="{{ partial "fragments/attach_dir" . }}{{ .Get "src" }}.{{ $maxsize }}.{{ substr (.Get "src") -1 3 }}?{{ partial "fragments/hash_content" (delimit (slice (partial "fragments/attach_dir" .) (.Get "src")) "") }}" data-lightbox="card-image"{{ with .Inner }} data-title="{{ . }}"{{ end }}>
+        {{ end }}
             <img src="{{ partial "fragments/attach_dir" . }}{{ .Get "src" }}.{{ $size }}.{{ substr (.Get "src") -1 3 }}?{{ partial "fragments/hash_content" (delimit (slice (partial "fragments/attach_dir" .) (.Get "src")) "") }}"{{ with .Get "title" }} alt="{{ . }}"{{ end }}>
         </a>
         {{ with .Get "title" }}
