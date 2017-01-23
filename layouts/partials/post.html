@@ -1,8 +1,8 @@
-<article class="post">
+<article class="post" itemscope itemtype="http://schema.org/Article">
     <h1>{{ .Title }}</h1>
     {{ partial "post_meta_top" . }}
 
-    <div class="article-body">
+    <div class="article-body" itemprop="articleBody">
       {{ .Content }}
     </div>
 
@@ -10,3 +10,11 @@
     {{ partial "post_meta_bottom" . }}
     {{ partial "post_prev_next" . }}
 </article>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "author": {{ .Site.Params.author }}
+}
+</script>

@@ -4,7 +4,7 @@
             <div class="col s12 center-align">
                 <div class="profile">
                     {{ with .Site.Params.avater }}
-                        <div><img class="responsive-img circle z-depth-1" src="{{ . }}"></div>
+                        <div><img class="responsive-img circle z-depth-1" src="{{ . }}" alt="{{ $.Site.Params.author }}"></div>
                     {{ end }}
                     <div class="social-links">
                         {{ with .Site.Social.github }}
