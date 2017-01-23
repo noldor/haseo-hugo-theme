@@ -1,4 +1,4 @@
-<section class="widget col s12 m12 l12">
+<section class="widget widget-recent-article col s12 m12 l12">
     <h4 class="widget-title">
         {{with .Site.Data.widgets.recent_articles.title}}{{.}}{{end}}
     </h4>
@@ -16,8 +16,8 @@
                     <div class="item-body col s8 m9 l8">
                         <div class="item-title">{{ .Title }}</div>
                         <div class="item-date">
-                            <!-- @todo 日付の色を基本テキストに戻す -->
-                            <time datetime="{{ .Date }}" itemprop="datePublished">{{ .Date.Format .Site.Params.date_format }}</time>
+                        <!-- @todo 日付の色を基本テキストに戻す -->
+                            <time>{{ .Date.Format .Site.Params.date_format }}</time>
                         </div>
                     </div>
                 </a>
