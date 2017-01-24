@@ -30,7 +30,7 @@
     "name": "{{ .Site.Params.author }}",
     "logo": {
       "@type": "ImageObject",
-      "url": "{{ "/img/ogp.img" | absURL }}",
+      "url": "{{ "/img/ogp.jpg" | absURL }}",
       "width": "640",
       "height": "426"
     }
@@ -41,7 +41,7 @@
   {{ if .Params.categories }}  "articleSection": "{{ delimit .Params.categories ", " }}",{{ end }}
   "image": {
     "@type": "ImageObject",
-    {{ $image_path := "/img/ogp.img" }}
+    {{ $image_path := "/img/ogp.jpg" }}
     {{ if isset .Params "eye_catch" }}
       {{ $image_path := (partial "fragments/image_path" (dict "dot" . "size" "ogp" "src" .Params.eye_catch)) }}
     {{ end }}

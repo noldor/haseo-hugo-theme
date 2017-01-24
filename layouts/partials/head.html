@@ -30,12 +30,10 @@
 <!-- custom css -->
 <link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "static" "path" "css/style.css") | relURL }}">
 
-<!-- @todo どうしよう
-{ template "_internal/opengraph.html" . }}
-{ template "_internal/google_news.html" . }}
-{ template "_internal/schema.html" . }}
-{ template "_internal/twitter_cards.html" . }}
--->
+{{ partial "ogp.html" . }}
+{{ if .Site.Social.twitter }}
+    {{ partial "twitter_cards.html" . }}
+{{ end }}
 
 {{ partial "custom_head" . }}
 </head>
