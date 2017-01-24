@@ -1,8 +1,8 @@
-<article class="post" itemscope itemtype="http://schema.org/Article">
+<article class="post">
     <h1>{{ .Title }}</h1>
     {{ partial "post_meta_top" . }}
 
-    <div class="article-body" itemprop="articleBody">
+    <div class="article-body">
       {{ .Content }}
     </div>
 
@@ -11,10 +11,46 @@
     {{ partial "post_prev_next" . }}
 </article>
 
+<!-- @todo 画像サイズをなんとかする -->
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "Article",
-  "author": {{ .Site.Params.author }}
+  "@id": "{{ .Permalink }}",
+  "name": {{ .Title | jsonify }},
+  "datePublished": "{{ .Date.Format "2006-01-02" }}",
+  "dateModified": "{{ .Lastmod.Format "2006-01-02"  }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ .Site.Params.author }}",
+    "image": "{{ .Site.Params.avater | absURL }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "{{ .Site.Params.author }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ "/img/ogp.img" | absURL }}",
+      "width": "640",
+      "height": "426"
+    }
+  },
+  "mainEntityOfPage": "{{ .Permalink }}",
+  "url": "{{ .Permalink }}",
+  "inLanguage": "{{ .Site.LanguageCode }}",
+  {{ if .Params.categories }}  "articleSection": "{{ delimit .Params.categories ", " }}",{{ end }}
+  "image": {
+    "@type": "ImageObject",
+    {{ $image_path := "/img/ogp.img" }}
+    {{ if isset .Params "eye_catch" }}
+      {{ $image_path := (partial "fragments/image_path" (dict "dot" . "size" "ogp" "src" .Params.eye_catch)) }}
+    {{ end }}
+    "url": "{{ $image_path | absURL }}",
+    "width": "640",
+    "height": "426"
+  },
+  "headline": {{ .Title | jsonify }},
+  "description": {{ .Summary | plainify | jsonify }},
+  "articleBody": {{ .Plain | jsonify }}
 }
 </script>

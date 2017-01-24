@@ -1,0 +1,1 @@
+{{ $size := "1360x1360" }}{{ if eq .size "ogp" }}{{ $size := "1360x1360" }}{{ end }}{{ partial "fragments/attach_dir" .dot }}{{ .src }}.{{ $size }}.{{ substr (.src) -1 3 }}
