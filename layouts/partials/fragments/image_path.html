@@ -1,0 +1,7 @@
+{{/*
+    引数には次のmapを渡す。
+    .size : 画像サイズ（ogp, thumbnail)
+    .src : 画像ファイル名。スラッシュから始める場合はpublic起点、そうでない場合はpage起点
+    .page : 対象のページ
+
+*/}}{{ if ne (substr .src 0 1) "/" }}/{{ .page.File.Dir }}{{ end }}{{ .src }}.{{ partial "fragments/image_size" .size }}.{{ substr (.src) -1 3 }}

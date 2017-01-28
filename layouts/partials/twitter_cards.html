@@ -5,7 +5,7 @@
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.site_description }}{{ end }}">
 {{ if and .IsPage (isset .Params "images") }}
-    <meta property="twitter:image" content="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | absURL }}">
+    <meta property="twitter:image" content="{{ substr .Site.BaseURL 0 -1 }}{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) }}">
 {{ else }}
-    <meta property="twitter:image" content="{{ partial "fragments/path_with_hash" (dict "dir" "public/" "path" "img/ogp.jpg") | absURL }}">
+    <meta property="twitter:image" content="{{ substr .Site.BaseURL 0 -1 }}{{ partial "fragments/hash_url" "/img/ogp.jpg" }}">
 {{ end }}
