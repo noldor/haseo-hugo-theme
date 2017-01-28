@@ -1,7 +1,7 @@
 {{ range (.Paginate (where .Data.Pages "Type" "post")).Pages }}
   <article class="article-list-item">
-    {{ if and (isset .Params "eye_catch") (not (eq .Params.eye_catch "")) }}
-      <a href="{{ .RelPermalink }}"><img class="eye_catch" src="{{ .Params.eye_catch | relURL }}" alt="{{ .Title }}"></a>
+    {{ if isset .Params "images" }}
+      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) | relURL }}"></a>
     {{ end }}
 
     <a class="title" href="{{ .RelPermalink }}">
