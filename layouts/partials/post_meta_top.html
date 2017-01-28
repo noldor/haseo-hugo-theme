@@ -1,13 +1,13 @@
 <div class="post-meta">
     <span class="date"><i class="fa fa-calendar"></i> {{ .Date.Format .Site.Params.date_format }}</span>
-    {{ if ne (.Date.Format .Site.Params.date_format) (.Lastmod.Format $.Site.Params.date_format) }}<span class="date"><i class="fa fa-calendar"></i> {{ .Lastmod.Format $.Site.Params.date_format }}</span>{{ end }}
+    {{ if ne (.Date.Format .Site.Params.date_format) (.Lastmod.Format $.Site.Params.date_format) }}&nbsp;<span class="date"><i class="fa fa-refresh"></i> {{ .Lastmod.Format $.Site.Params.date_format }}</span>{{ end }}
     {{ if isset .Params "categories" }}
         {{ if gt (len .Params.categories) 0 }}
             &nbsp;&nbsp;
             <span class="categories"><i class="fa fa-folder"></i>
                 {{ range $name := .Params.categories }}
                     {{ $url := printf "%s/%s" "categories" ($name | urlize | lower)}}
-                    <a href="{{ $url | relURL }}">{{ $name }}</a>
+                    <a href="{{ $url | relURL }}">{{ $name | replaceRE ".+/([^/]+)" "$1" }}</a>
                 {{ end }}
             </span>
         {{ end }}

@@ -1,0 +1,26 @@
+<article class="article-list-item z-depth-1">
+    <div class="row">
+        <div class="col s3">
+            {{ if isset .Params "images" }}
+                <a href="{{ .RelPermalink }}"><img class="responsive-img" src="{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) }}"></a>
+            {{ end }}
+        </div>
+
+        <div class="col s9">
+            <a class="title" href="{{ .RelPermalink }}">
+                <h2>{{ .Title }}</h2>
+            </a>
+            {{ partial "post_meta_top" . }}
+
+            <div class="article-body">
+                {{ .Summary | plainify }}
+            </div>
+
+            <div class="action-list">
+                <a class="btn z-depth-0" href="{{ .RelPermalink }}">
+                    {{with .Site.Data.articles.read_more}}{{.}}{{end}} <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</article>

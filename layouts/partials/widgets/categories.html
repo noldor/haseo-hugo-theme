@@ -5,7 +5,7 @@
         {{ range $name, $items := .Site.Taxonomies.categories }}
             <li class="item">
                 {{ $url := printf "%s/%s" "categories" ($name | urlize | lower)}}
-                <a class="item-link" href="{{ $url | relURL }}">{{ $name }}</a>
+                <a class="item-link" href="{{ $url | relURL }}">{{ $name | replaceRE ".+/([^/]+)" "　- $1" }}</a>
                 <span class="item-count">({{ len $items }})</span>
             </li>
         {{ end }}
