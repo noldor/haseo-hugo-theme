@@ -1,0 +1,7 @@
+{{/*
+    引数には次のmapを渡す。
+    .size : 画像サイズ（ogp, thumbnail)
+    .src : 画像ファイル名
+    .page : 対象のページ
+
+*/}}{{ partial "fragments/image_path" . }}?{{ partial "fragments/hash" (partial "fragments/image_path" .) }}

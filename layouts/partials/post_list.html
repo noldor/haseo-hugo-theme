@@ -1,7 +1,7 @@
 {{ range (.Paginate .Data.Pages).Pages }}
   <article class="article-list-item">
     {{ if isset .Params "images" }}
-      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) | relURL }}"></a>
+      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) }}"></a>
     {{ end }}
 
     <a class="title" href="{{ .RelPermalink }}">

@@ -42,9 +42,9 @@
   "image": {
     "@type": "ImageObject",
     {{ if isset .Params "images" }}
-      "url": "{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | relURL }}",
+      "url": "{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | absURL }}",
     {{ else }}
-      "url": "{{ partial "fragments/path_with_hash" (dict "dir" "public/" "path" "img/ogp.jpg") | relURL }}",
+      "url": "{{ partial "fragments/hash_url" "/img/ogp.jpg" | absURL }}",
     {{ end }}
     "width": "640",
     "height": "426"

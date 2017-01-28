@@ -10,9 +10,9 @@
         {{ if .Get "href" }}
             <a href="{{ .Get "href" }}">
         {{ else }}
-            <a href="{{ partial "fragments/page_image_path" (dict "src" (.Get "src") "size" "max" "page" .Page) | relURL }}" data-lightbox="card-image"{{ with .Inner }} data-title="{{ . }}"{{ end }}>
+            <a href="{{ partial "fragments/image_url" (dict "src" (.Get "src") "size" "max" "page" .Page) | relURL }}" data-lightbox="card-image"{{ with .Inner }} data-title="{{ . }}"{{ end }}>
         {{ end }}
-            <img src="{{ partial "fragments/page_image_path" (dict "src" (.Get "src") "size" (.Get "size" | default "asis") "page" .Page) | relURL }}"{{ with .Get "title" }} alt="{{ . }}"{{ end }}>
+            <img src="{{ partial "fragments/image_url" (dict "src" (.Get "src") "size" (.Get "size" | default "responsive") "page" .Page) | relURL }}"{{ with .Get "title" }} alt="{{ . }}"{{ end }}>
         </a>
         {{ with .Get "title" }}
             <span class="card-title">{{ . }}</span>
