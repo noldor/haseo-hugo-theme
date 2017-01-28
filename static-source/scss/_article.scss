@@ -54,7 +54,14 @@ article {
         }
 
         // カードサイズ
-        .card.asis {
+        .card.image-responsive {
+            display: inline-block;
+            width: 100%;
+            img {
+                width: 100%;
+            }
+        }
+        .card.image-asis {
             display: inline-block;
             img {
                 width: auto;

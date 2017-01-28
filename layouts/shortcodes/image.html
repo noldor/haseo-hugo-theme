@@ -5,7 +5,7 @@
     タグ内部 : キャプション
 
 */}}
-<div class="card image-{{ .Get "size" | default "asis" }}">
+<div class="card image-{{ .Get "size" | default "responsive" }}">
     <div class="card-image">
         {{ if .Get "href" }}
             <a href="{{ .Get "href" }}">
