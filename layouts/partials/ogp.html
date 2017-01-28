@@ -1,14 +1,10 @@
+<meta property="og:site_name" content="{{ .Site.Title }}">
 <meta property="og:title" content="{{ .Title }}">
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.site_description }}{{ . }}{{ end }}{{ end }}{{ end }}">
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
 <meta property="og:url" content="{{ .Permalink }}">
-<meta property="og:site_name" content="{{ .Site.Title }}">
-{{ if .IsPage }}
-    {{ if isset .Params "eye_catch" }}
-        <meta property="og:image" content="{{ .Params.eye_catch | absURL }}" />
-    {{ else }}
-        <meta property="og:image" content="{{ "/img/ogp.jpg" | absURL }}" />
-    {{ end }}
+<meta name="og:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.site_description }}{{ end }}">
+{{ if and .IsPage (isset .Params "images") }}
+    <meta property="og:image" content="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | absURL }}">
 {{ else }}
-    <meta property="og:image" content="{{ "/img/ogp.jpg" | absURL }}" />
+    <meta property="og:image" content="{{ partial "fragments/path_with_hash" (dict "dir" "public/" "path" "img/ogp.jpg") | absURL }}">
 {{ end }}

@@ -25,15 +25,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
 <!-- font-awasome -->
-<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "themes/haseo/static" "path" "font-awesome/css/font-awesome.min.css") | relURL }}">
+<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "themes/haseo/static/" "path" "font-awesome/css/font-awesome.min.css") | relURL }}">
 
 <!-- custom css -->
-<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "static" "path" "css/style.css") | relURL }}">
+<link rel="stylesheet" href="{{ partial "fragments/path_with_hash" (dict "dir" "static/" "path" "css/style.css") | relURL }}">
 
 {{ partial "ogp.html" . }}
-{{ if .Site.Social.twitter }}
-    {{ partial "twitter_cards.html" . }}
-{{ end }}
+{{ partial "twitter_cards.html" . }}
 
 {{ partial "custom_head" . }}
 </head>

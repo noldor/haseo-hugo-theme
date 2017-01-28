@@ -1,13 +1,11 @@
 <meta name="twitter:card" content="summary">
-<meta name="twitter:site" content="@{{ .Site.Social.twitter }}">
+{{ with .Site.Social.twitter }}
+    <meta name="twitter:site" content="@{{ . }}">
+{{ end }}
 <meta name="twitter:title" content="{{ .Title }}">
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{ if .IsPage }}{{ .Summary }}{{ else }}{{ with .Site.Params.site_description }}{{ . }}{{ end }}{{ end }}{{ end }}">
-{{ if .IsPage }}
-    {{ if isset .Params "eye_catch" }}
-        <meta property="twitter:image" content="{{ .Params.eye_catch | absURL }}" />
-    {{ else }}
-        <meta property="twitter:image" content="{{ "/img/ogp.jpg" | absURL }}" />
-    {{ end }}
+<meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else if .IsPage }}{{ .Summary }}{{ else }}{{ .Site.Params.site_description }}{{ end }}">
+{{ if and .IsPage (isset .Params "images") }}
+    <meta property="twitter:image" content="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | absURL }}">
 {{ else }}
-    <meta property="twitter:image" content="{{ "/img/ogp.jpg" | absURL }}" />
+    <meta property="twitter:image" content="{{ partial "fragments/path_with_hash" (dict "dir" "public/" "path" "img/ogp.jpg") | absURL }}">
 {{ end }}

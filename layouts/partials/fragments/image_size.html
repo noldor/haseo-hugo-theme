@@ -1,0 +1,6 @@
+{{/*
+    引数には画像サイズの論理名を渡す
+    asis, max, ogp : 1360x1360
+    thumbnail : 300x300
+
+*/}}{{ if eq . "thumbnail" }}300x300{{ else }}1360x1360{{end}}

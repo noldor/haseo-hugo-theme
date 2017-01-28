@@ -1,1 +1,4 @@
-{{ delimit (slice .dir "/" .path) "" | readFile | md5 }}
+{{/*
+    .dir : public展開前のディレクトリ（末尾スラッシュあり）、または"public/"
+    .path : public展開後のパス
+*/}}{{ delimit (slice .dir .path) "" | readFile | md5 }}
