@@ -3,6 +3,8 @@
         <div class="col s3">
             {{ if isset .Params "images" }}
                 <a href="{{ .RelPermalink }}"><img class="responsive-img" src="{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) }}"></a>
+            {{ else }}
+                <img class="responsive-img" src="{{ "/img/no_image.png" | relURL }}">
             {{ end }}
         </div>
 
