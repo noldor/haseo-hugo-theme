@@ -1,24 +1,5 @@
 {{ range (.Paginate .Data.Pages).Pages }}
-  <article class="article-list-item">
-    {{ if isset .Params "images" }}
-      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/image_url" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) }}"></a>
-    {{ end }}
-
-    <a class="title" href="{{ .RelPermalink }}">
-      <h2>{{ .Title }}</h2>
-    </a>
-    {{ partial "post_meta_top" . }}
-
-    <div class="article-body">
-      {{ .Summary }}
-    </div>
-
-    {{ if .Truncated }}
-      <a class="btn" href="{{ .RelPermalink }}">
-        {{with .Site.Data.articles.read_more}}{{.}}{{end}}
-      </a>
-    {{ end }}
-  </article>
+    {{ partial "post_list_item" . }}
 {{ end }}
 
 {{ partial "pagination" . }}

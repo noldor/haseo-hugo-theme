@@ -1,3 +1,19 @@
 article.article-list-item {
-    margin-bottom: 2em;
+    margin-bottom: 1.5em;
+
+    & > div {
+        padding: 0.5em;
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .action-list {
+        margin-top: 0.5em;
+
+        .btn i {
+            font-size: 1em;
+        }
+    }
 }

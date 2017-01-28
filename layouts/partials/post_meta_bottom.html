@@ -1,7 +1,7 @@
 <div class="post-meta right-align">
     {{ if isset .Params "tags" }}
         {{ if gt (len .Params.tags) 0 }}
-            <span class="categories"><i class="fa fa-tags"></i>
+            <span class="tags"><i class="fa fa-tags"></i>
                 {{ range $name := .Params.tags }}
                     {{ $url := printf "%s/%s" "tags" ($name | urlize | lower)}}
                     <a href="{{ $url | relURL }}">

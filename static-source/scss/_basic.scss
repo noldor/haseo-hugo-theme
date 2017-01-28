@@ -11,6 +11,14 @@ html{
     }
 }
 
+// 横幅の設定
+.container {
+    @media #{$large-and-up} {
+        min-width: 960px;
+    }
+}
+
+
 // ナビバー周辺
 main {
     margin-top: 1em;
