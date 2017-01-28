@@ -4,4 +4,4 @@
     .src : 画像ファイル名
     .page : 対象のページ
 
-*/}}{{ partial "fragments/attach_dir" .page }}{{ .src }}.{{ partial "fragments/image_size" .size }}.{{ substr (.src) -1 3 }}?{{ partial "fragments/page_hash" (delimit (slice (partial "fragments/attach_dir" .page) .src) "") }}
+*/}}{{ .page.File.Dir }}{{ .src }}.{{ partial "fragments/image_size" .size }}.{{ substr (.src) -1 3 }}?{{ partial "fragments/page_hash" (delimit (slice (partial "fragments/attach_dir" .page) .src) "") }}
