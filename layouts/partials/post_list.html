@@ -1,7 +1,7 @@
 {{ range (.Paginate .Data.Pages).Pages }}
   <article class="article-list-item">
-    {{ if and (isset .Params "eye_catch") (not (eq .Params.eye_catch "")) }}
-      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/attach_dir" . }}{{ .Params.eye_catch }}.300x300.{{ substr (.Params.eye_catch) -1 3 }}?{{ partial "fragments/hash_content" (delimit (slice (partial "fragments/attach_dir" .) .Params.eye_catch) "") }}"></a>
+    {{ if isset .Params "images" }}
+      <a href="{{ .RelPermalink }}"><img src="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) | relURL }}"></a>
     {{ end }}
 
     <a class="title" href="{{ .RelPermalink }}">

@@ -7,8 +7,8 @@
             <li class="item">
                 <a href="{{ .RelPermalink }}" class="row">
                     <div class="item-thumbnail col s4 m3 l4">
-                        {{ if and (isset .Params "eye_catch") (not (eq .Params.eye_catch "")) }}
-                            <img class="responsive-img" src="{{ .Params.eye_catch | relURL }}" alt="{{ .Title }}">
+                        {{ if isset .Params "images" }}
+                            <img class="responsive-img" src="{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "thumbnail" "page" .) | relURL }}" alt="{{ .Title }}">
                         {{else}}
                             <img class="responsive-img" src="{{ "/img/no_image.png" | relURL }}" alt="no image">
                         {{ end }}
@@ -16,7 +16,6 @@
                     <div class="item-body col s8 m9 l8">
                         <div class="item-title">{{ .Title }}</div>
                         <div class="item-date">
-                        <!-- @todo 日付の色を基本テキストに戻す -->
                             <time>{{ .Date.Format .Site.Params.date_format }}</time>
                         </div>
                     </div>

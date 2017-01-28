@@ -41,11 +41,11 @@
   {{ if .Params.categories }}  "articleSection": "{{ delimit .Params.categories ", " }}",{{ end }}
   "image": {
     "@type": "ImageObject",
-    {{ $image_path := "/img/ogp.jpg" }}
-    {{ if isset .Params "eye_catch" }}
-      {{ $image_path := (partial "fragments/image_path" (dict "dot" . "size" "ogp" "src" .Params.eye_catch)) }}
+    {{ if isset .Params "images" }}
+      "url": "{{ partial "fragments/page_image_path" (dict "src" (index .Params.images 0) "size" "ogp" "page" .) | relURL }}",
+    {{ else }}
+      "url": "{{ partial "fragments/path_with_hash" (dict "dir" "public/" "path" "img/ogp.jpg") | relURL }}",
     {{ end }}
-    "url": "{{ $image_path | absURL }}",
     "width": "640",
     "height": "426"
   },
