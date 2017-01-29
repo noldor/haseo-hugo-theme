@@ -56,6 +56,19 @@ article {
             font-weight: bold;  // materialize標準設定ではstrongの日本語フォントがほとんど変化しないため
         }
 
+        // テーブルにボーダーラインをつける
+        table > thead,
+        table > tbody {
+            tr {
+                border-bottom: 1px solid $table-border-color;
+            }
+            th, td {
+                &:not(:last-child) {
+                    border-right: 1px solid $table-border-color;
+                }
+            }
+        }
+
         // カードサイズ
         .card.image-responsive {
             display: inline-block;
