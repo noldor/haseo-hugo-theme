@@ -3,13 +3,13 @@
 
 name = "HaSEO"
 license = "GPL v2"
-licenselink = "https://github.com/yourname/yourtheme/blob/master/LICENSE.md"
-description = ""
-homepage = ""
+licenselink = "https://github.com/noldor/haseo-hugo-theme/blob/master/LICENSE.txt"
+description = "theme for blog in Japanese"
+homepage = "https://github.com/noldor/haseo-hugo-theme"
 tags = ["blog", "Japanese"]
-features = ["", ""]
+features = ["Rename Distribution Pattern"]
 min_version = 0.18
 
 [author]
-  name = "noldor"
+  name = "TAKEKOSHI Akishige"
   homepage = "https://blog.noldor.info/"

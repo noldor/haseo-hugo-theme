@@ -22,11 +22,13 @@
   "name": {{ .Title | jsonify }},
   "datePublished": "{{ .Date.Format "2006-01-02" }}",
   "dateModified": "{{ .Lastmod.Format "2006-01-02"  }}",
-  "author": {
-    "@type": "Person",
-    "name": "{{ .Site.Params.author }}",
-    "image": "{{ .Site.Params.avater | absURL }}"
-  },
+  {{ if and .Site.Params.author .Site.Params.avater }}
+    "author": {
+      "@type": "Person",
+      "name": "{{ .Site.Params.author }}",
+      "image": "{{ .Site.Params.avater | absURL }}"
+    },
+  {{ end }}
   "publisher": {
     "@type": "Organization",
     "name": "{{ .Site.Params.author }}",
