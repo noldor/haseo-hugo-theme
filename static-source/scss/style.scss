@@ -9,10 +9,10 @@ $h6-fontsize: 1rem !default;
 
 $roboto-font-path: "/materialize-src/fonts/roboto/" !default;
 
-$primary-color: #b73935;
-$secondary-color: #359db8;
-$link-color: #155e99;
-$dropdown-color : $link-color;
+$primary-color: #b73935 !default;
+$secondary-color: #359db8 !default;
+$link-color: #155e99 !default;
+$dropdown-color : $link-color !default;
 
 @import "../../static/materialize-src/sass/materialize";
 
