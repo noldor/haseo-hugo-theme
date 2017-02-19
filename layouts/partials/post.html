@@ -20,8 +20,12 @@
   "@type": "Article",
   "@id": "{{ .Permalink }}",
   "name": {{ .Title | jsonify }},
-  "datePublished": "{{ .Date.Format "2006-01-02" }}",
-  "dateModified": "{{ .Lastmod.Format "2006-01-02"  }}",
+  {{ if .Site.Params.UseLastmodForPublishedOnSchemaOrg }}
+    "datePublished": "{{ .Lastmod.Format "2006-01-02"  }}",
+  {{ else }}
+    "datePublished": "{{ .Date.Format "2006-01-02" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02"  }}",
+  {{ end }}
   {{ if and .Site.Params.author .Site.Params.avater }}
     "author": {
       "@type": "Person",
